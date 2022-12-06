@@ -3,12 +3,12 @@
   <%= form_with model: Flight, method: :get do |form| %>
     <div>
       <%= form.label :departure_id, "Departure Airport" %><br>
-      <%= form.collection_select :departure_id, Airport.order(:id), :id, :code %><br>
+      <%= form.collection_select :departure_id, Airport.order(:id), :id, :code, {:prompt => ""} %><br>
     </div>
 
     <div>
       <%= form.label :arrival_id, "Arrival Airport" %><br>
-      <%= form.collection_select :arrival_id, Airport.order(:id), :id, :code %><br>
+      <%= form.collection_select :arrival_id, Airport.order(:id), :id, :code, {:prompt => ""}  %><br>
     </div>
 
 
@@ -19,7 +19,7 @@
 
     <div>
       <%= form.label :shuppatsu, "Departure Date" %><br>
-      <%= form.date_field :shuppatsu %><br>
+      <%= form.collection_select :shuppatsu, Flight.order(:shuppatsu), :shuppatsu, :shuppatsu, {:prompt => ""}  %><br>
     </div>
 
     <div>
@@ -27,3 +27,7 @@
     </div>
   <% end %>
 </div>
+
+<%= @results.to_a %>
+<%= @test %>
+<%= @a %>
