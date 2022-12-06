@@ -1,0 +1,29 @@
+<h1>Flights#index</h1>
+<div data-turbo="false">
+  <%= form_with model: Flight, method: :get do |form| %>
+    <div>
+      <%= form.label :departure_id, "Departure Airport" %><br>
+      <%= form.collection_select :departure_id, Airport.order(:id), :id, :code %><br>
+    </div>
+
+    <div>
+      <%= form.label :arrival_id, "Arrival Airport" %><br>
+      <%= form.collection_select :arrival_id, Airport.order(:id), :id, :code %><br>
+    </div>
+
+
+    <div>
+      <%= form.label :passengers, "Number of Passengers" %><br>
+      <%= form.select :passengers, [1, 2, 3, 4] %><br>
+    </div>
+
+    <div>
+      <%= form.label :shuppatsu, "Departure Date" %><br>
+      <%= form.date_field :shuppatsu %><br>
+    </div>
+
+    <div>
+      <%= form.submit "Search" %>
+    </div>
+  <% end %>
+</div>
